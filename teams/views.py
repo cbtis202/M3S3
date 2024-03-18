@@ -101,4 +101,4 @@ def deletePlayer(request, idPlayer):
     infoJugador = player.objects.get(idPlayer=idPlayer)
 
     infoJugador.delete()
-    return redirect('/?mensaje_delete=True')
+    return redirect('/players/?mensaje_delete=True')

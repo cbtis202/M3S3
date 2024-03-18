@@ -30,12 +30,16 @@
                 Editar
             </a>
         </td>
-            <td> Eliminar </td>
-            </tr>
+            <td> 
+                <a href="../deletePlayer/{{ jugador.idPlayer }}">
+                    Eliminar
+                </a> 
+            </td>
+        </tr>
         {% endfor %}
     </table>
     <td>
-        <a href="newPlayer/"> nuevo Jugador</a>
+        <a href="../newPlayer/"> nuevo Jugador</a>
     </td>
 </body>
 </html>

@@ -14,6 +14,6 @@ urlpatterns = [
    path('addPlayer/', views.addPlayer),
    path('editPlayer/<int:idPlayer>', views.editPlayer),
    path('updatePlayer/<int:idPlayer>', views.updatePlayer),
-   path('deletePlayer/<int:idEquipo>', views.deletePlayer),
+   path('deletePlayer/<int:idPlayer>', views.deletePlayer),
 ]
 

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 # Recuerda siempre importar los Modelos que vas a usar
-from .models import team
+from .models import team, player
 
 # Create your views here.
 # Vista Index que recibe el REQUEST del usuario
@@ -47,3 +47,58 @@ def borrarEquipo(request, idEquipo):
 
     infoEquipo.delete()
     return redirect('/?mensaje_delete=True')
+
+# Vistas para el CRUD del modelo Jugadores
+
+def jugadores(request):
+    Jugadores = player.objects.all()
+
+    return render(request, "jugadores.html", 
+                  {"jugadores":Jugadores}
+                  )
+
+def newPlayer(request):
+    return render(request, "formPlayer.html")
+
+def addPlayer(request):
+    nomJugador = request.POST['txtNomJugador'] 
+    alturaJugador = request.POST['txtAltura']
+    pesoJugador = request.POST['txtPeso']
+    posicionJugador = request.POST['txtPosicion'] 
+
+    nvoJugador = player.objects.create(
+        playerName = nomJugador,
+        playerHeight = alturaJugador,
+        playerWeight = pesoJugador,
+        positionPlayer = posicionJugador
+    )
+
+    return redirect('/players/?mensaje=True') 
+
+def editPlayer(request,idPlayer):
+    infoPlayer = player.objects.get(
+        idPlayer=idPlayer)
+
+    return render(request, "formEditPlayer.html",
+                  {"Jugador": infoPlayer })
+
+def updatePlayer(request,idPlayer):
+    nomActJugador = request.POST['txtNomJugador']
+    alturaActJugador = request.POST['txtAltura']
+    pesoActJugador = request.POST['txtPeso']
+    posicionActJugador = request.POST['txtPosicion']
+
+    infoJugador = player.objects.get(idPlayer=idPlayer)
+    infoJugador.playerName = nomActJugador
+    infoJugador.playerHeight = alturaActJugador
+    infoJugador.playerWeight = pesoActJugador
+    infoJugador.positionPlayer = posicionActJugador
+    infoJugador.save()
+
+    return redirect('/players/?mensaje_update=True')
+
+def deletePlayer(request, idPlayer): 
+    infoJugador = player.objects.get(idPlayer=idPlayer)
+
+    infoJugador.delete()
+    return redirect('/players/?mensaje_delete=True')

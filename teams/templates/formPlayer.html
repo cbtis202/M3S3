@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jugadores</title>
+</head>
+<body>
+    <form method="post" action="../addPlayer/">
+        {% csrf_token %}
+        <label for="txtNomJugador">Nombre Jugador:</label>
+        <input type="text" id="txtNomJugador" 
+        name="txtNomJugador" required 
+        />
+        <label for="txtAltura">Altura:</label>
+        <input type="text" id="txtAltura" 
+        name="txtAltura" required />
+        <label for="txtPeso">Peso:</label>
+        <input type="text" id="txtPeso" 
+        name="txtPeso" required />
+        <label for="txtPosicion">Posición:</label>
+        <input type="text" id="txtPosicion" 
+        name="txtPosicion" required />
+        <button type = "submit" id="btnGuardar">Guardar</button>
+        <button id="btnCancelar">Cancelar</button>
+
+    </form>
+</body>
+</html>

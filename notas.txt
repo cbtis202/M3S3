@@ -1,0 +1,28 @@
+1. Debes generar tu ambiente de programación
+    - Instala Python
+    - Instala django  ==> pip install django
+
+2. Genera tu proyecto
+    django-admin strartproject ligaDeportiva
+
+3. Genera tu aplicacion
+    django-admin startapp teams
+
+4. Corre los comandos de django
+    - python manage.py makemigrations
+    - python manage.py migrate
+    - python manage.py createsuperuser
+
+5. Modelo - Vista - Template
+
+6. Genera tus Modelos dentro de tu aplicación
+    - teams
+    - players
+
+7. Genera tus Vistas
+    - Index
+    - formEquipo
+    - nuevoEquipo
+    - editarEquipo
+    - actualizarEquipo
+    

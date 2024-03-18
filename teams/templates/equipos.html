@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2> Acá ando en Equipos</h2>
+    <table border="1">
+        <tr>
+            <th>Equipo</th>
+            <th>Estadio Sede</th>
+            <th colspan="2">Acciones</th>
+        </tr>
+        {% for equipo in misequipos %}
+            {% if forloop.counter0|divisibleby:2 %}
+                <tr bgcolor = "#82BBF9">
+            {% else %}
+                <tr bgcolor = "#FEFEFE">
+            {% endif %}
+
+            <td>{{ equipo.nameTeam }}</td>
+            <td>{{ equipo.sedeTeam }}</td>
+            <td>
+                <a href="borrarEquipo/{{ equipo.idTeam }}">
+                    Eliminar
+                </a>
+
+            </td>
+            <td>
+                <a href="editarEquipo/{{ equipo.idTeam }}">
+                    Editar
+                </a>
+                
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <td><a href="formTeam">Nuevo Equipo</a></td>
+</body>
+</html>

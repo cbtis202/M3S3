@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Estadio</title>
+</head>
+<body>
+    <form method="post" action="../nuevoEquipo/">
+        {% csrf_token %}
+        <label for="txtEquipo">Equipo:</label>
+        <input type="text" id="txtEquipo" 
+        name="txtEquipo" required 
+        />
+        <label for="txtEstadio">Estadio:</label>
+        <input type="text" id="txtEstadio" 
+        name="txtEstadio" required />
+        <button type = "submit" id="btnGuardar">Guardar</button>
+        <button id="btnCancelar">Cancelar</button>
+
+    </form>
+</body>
+</html>

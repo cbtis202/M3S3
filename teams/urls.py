@@ -9,5 +9,11 @@ urlpatterns = [
    path('editarEquipo/<int:idEquipo>', views.editarEquipo),
    path('actualizarEquipo/<int:idEquipo>', views.actualizarEquipo),
    path('borrarEquipo/<int:idEquipo>', views.borrarEquipo),
+   path('players/', views.jugadores),
+   path('newPlayer/', views.newPlayer),
+   path('addPlayer/', views.addPlayer),
+   path('editPlayer/<int:idPlayer>', views.editPlayer),
+   path('updatePlayer/<int:idPlayer>', views.updatePlayer),
+   path('deletePlayer/<int:idEquipo>', views.deletePlayer),
 ]
 

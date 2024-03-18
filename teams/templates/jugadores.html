@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jugadores</title>
+</head>
+<body>
+    <h2>Jugadores</h2>
+    <table>
+        <tr>
+            <th>Jugador</th>
+            <th>Altura</th>
+            <th>Peso</th>
+            <th>Posición</th>
+            <th colspan="2">Acciones</th>
+        </tr>
+        {% for jugador in jugadores %}
+            {% if forloop.counter0|divisibleby:2 %}
+                <tr bgcolor = "#82BBF9">
+            {% else %}
+                <tr bgcolor = "#FEFEFE">
+            {% endif %}
+            <td> {{ jugador.playerName }}</td>        
+            <td> {{ jugador.playerHeight }}</td>
+            <td> {{ jugador.playerWeight }}</td>
+            <td> {{ jugador.positionPlayer }}</td>
+            <td>
+            <a href="../editPlayer/{{ jugador.idPlayer }}">
+                Editar
+            </a>
+        </td>
+            <td> Eliminar </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <td>
+        <a href="newPlayer/"> nuevo Jugador</a>
+    </td>
+</body>
+</html>

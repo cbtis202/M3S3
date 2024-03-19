@@ -13,6 +13,7 @@
             <th>Altura</th>
             <th>Peso</th>
             <th>Posición</th>
+            <th>Equipo</th>
             <th colspan="2">Acciones</th>
         </tr>
         {% for jugador in jugadores %}
@@ -25,6 +26,7 @@
             <td> {{ jugador.playerHeight }}</td>
             <td> {{ jugador.playerWeight }}</td>
             <td> {{ jugador.positionPlayer }}</td>
+            <td> {{ jugador.idTeam }}</td>
             <td>
             <a href="../editPlayer/{{ jugador.idPlayer }}">
                 Editar

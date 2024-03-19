@@ -16,6 +16,9 @@ class player(models.Model):
     playerHeight = models.FloatField()
     playerWeight = models.FloatField()
     positionPlayer = models.CharField(max_length=93)
+    fkIdTeam = models.ForeignKey(team, name = "idTeam", 
+                                    on_delete=models.DO_NOTHING,
+                                    blank=True, null=True)
 
     def __str__(self):
         return self.playerName

@@ -58,41 +58,50 @@ def jugadores(request):
                   )
 
 def newPlayer(request):
-    return render(request, "formPlayer.html")
+    equipos = team.objects.all()
+
+    return render(request, "formPlayer.html",
+                    {"todos":equipos})
 
 def addPlayer(request):
     nomJugador = request.POST['txtNomJugador'] 
     alturaJugador = request.POST['txtAltura']
     pesoJugador = request.POST['txtPeso']
-    posicionJugador = request.POST['txtPosicion'] 
+    posicionJugador = request.POST['txtPosicion']
+    equipoJugador = request.POST['selectEquipo'] 
 
     nvoJugador = player.objects.create(
         playerName = nomJugador,
         playerHeight = alturaJugador,
         playerWeight = pesoJugador,
-        positionPlayer = posicionJugador
+        positionPlayer = posicionJugador,
+        idTeam_id = int(equipoJugador)
     )
 
     return redirect('/players/?mensaje=True') 
 
 def editPlayer(request,idPlayer):
-    infoPlayer = player.objects.get(
-        idPlayer=idPlayer)
+    infoPlayer = player.objects.get(idPlayer=idPlayer)
+    equipos = team.objects.all()
 
     return render(request, "formEditPlayer.html",
-                  {"Jugador": infoPlayer })
+                  {"Jugador": infoPlayer ,
+                   "todos": equipos})
 
 def updatePlayer(request,idPlayer):
     nomActJugador = request.POST['txtNomJugador']
     alturaActJugador = request.POST['txtAltura']
     pesoActJugador = request.POST['txtPeso']
     posicionActJugador = request.POST['txtPosicion']
+    equipoActJugador = request.POST['selectEquipo']
 
     infoJugador = player.objects.get(idPlayer=idPlayer)
     infoJugador.playerName = nomActJugador
     infoJugador.playerHeight = alturaActJugador
     infoJugador.playerWeight = pesoActJugador
     infoJugador.positionPlayer = posicionActJugador
+    infoJugador.idTeam_id = int(equipoActJugador) 
+    
     infoJugador.save()
 
     return redirect('/players/?mensaje_update=True')

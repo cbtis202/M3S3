@@ -8,6 +8,15 @@
 <body>
     <form method="post" action="../addPlayer/">
         {% csrf_token %}
+        <label for="txtEquipo">Equipo:</label>
+        <select name="selectEquipo" id="selectEquipo" 
+                onchange="console.log(this.value)" required >
+            <option value="0" selected>Selecciona un Equipo</option>
+            {% for equipo in todos %}
+                <option value="{{equipo.idTeam}}">{{equipo.nameTeam}}</option>
+            {% endfor %}
+        </select>
+        
         <label for="txtNomJugador">Nombre Jugador:</label>
         <input type="text" id="txtNomJugador" 
         name="txtNomJugador" required 

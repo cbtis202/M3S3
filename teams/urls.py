@@ -15,5 +15,11 @@ urlpatterns = [
    path('editPlayer/<int:idPlayer>', views.editPlayer),
    path('updatePlayer/<int:idPlayer>', views.updatePlayer),
    path('deletePlayer/<int:idPlayer>', views.deletePlayer),
+
+   ### Rutas para las Plantillas
+   path('albumHome', views.albumHome),
+   path('albumEquipos', views.albumEquipos),
+   path('albumEstadisticas', views.albumEstadisticas),
+
 ]
 

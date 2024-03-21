@@ -111,3 +111,16 @@ def deletePlayer(request, idPlayer):
 
     infoJugador.delete()
     return redirect('/players/?mensaje_delete=True')
+
+#### Vistas para la Plantilla 
+def albumHome(request):
+    # Abrimos el documento de la plantilla
+    return render(request, "album/home.html")
+
+def albumEquipos(request):
+    # Abrimos el documento de la plantilla
+    return render(request, "album/equipos.html")
+
+def albumEstadisticas(request):
+    # Abrimos el documento de la plantilla
+    return render(request, "album/estadisticas.html")

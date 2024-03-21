@@ -7,7 +7,9 @@
     <title>Nuevo Estadio</title>
 </head>
 <body>
-    <form method="post" action="../actualizarEquipo/{{ Equipo.idTeam }}">
+    <form method="post" 
+        enctype="multipart/form-data"
+        action="../actualizarEquipo/{{ Equipo.idTeam }}">
         {% csrf_token %}
         <label for="txtEquipo">Equipo:</label>
         <input type="text" id="txtEquipo" 
@@ -20,6 +22,10 @@
         name="txtEstadio" 
         value=" {{ Equipo.sedeTeam }}"
         required />
+
+        <label for="fileLogo">Escudo:</label>
+        <input type="file" name="fileLogo" required />
+
         <button type = "submit" id="btnGuardar">Guardar</button>
         <button id="btnCancelar">Cancelar</button>
 

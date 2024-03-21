@@ -6,6 +6,10 @@ class team(models.Model):
     idTeam = models.AutoField(primary_key=True)
     nameTeam = models.CharField(max_length=93)
     sedeTeam = models.CharField(max_length=93)
+    logo = models.ImageField(upload_to='equipos',
+                             null=True, blank=True,
+                             default ='equipos/default.png'
+                             )
 
     def __str__(self):
         return self.nameTeam

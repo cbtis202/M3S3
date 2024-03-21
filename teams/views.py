@@ -20,24 +20,29 @@ def formEquipo(request):
 
 def nuevoEquipo(request):
     equipo = request.POST['txtEquipo'] 
-    sede = request.POST['txtEstadio'] 
+    sede = request.POST['txtEstadio']
+    logo = request.FILES['fileLogo']
 
     newEquipo = team.objects.create(nameTeam=equipo,
-                                    sedeTeam=sede)
+                                    sedeTeam=sede,
+                                    logo = logo)
     return redirect('/?mensaje=True')
 
 def editarEquipo(request, idEquipo):
     infoEquipo = team.objects.get(idTeam=idEquipo)
     return render(request, "formEditEquipo.html",
-                  {"Equipo": infoEquipo })
+                    {"Equipo": infoEquipo })
 
 def actualizarEquipo(request, idEquipo):
     nomActEquipo = request.POST['txtEquipo']
     sedeAct = request.POST['txtEstadio']
+    logoAct = request.FILES['fileLogo']
 
     infoEquipo = team.objects.get(idTeam=idEquipo)
     infoEquipo.nameTeam = nomActEquipo
     infoEquipo.sedeTeam = sedeAct
+    infoEquipo.logo = logoAct
+    
     infoEquipo.save()
 
     return redirect('/?mensaje_update=True')

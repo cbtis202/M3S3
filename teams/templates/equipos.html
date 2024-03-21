@@ -14,6 +14,7 @@
         <tr>
             <th>Equipo</th>
             <th>Estadio Sede</th>
+            <th>Escudo</th>
             <th colspan="2">Acciones</th>
         </tr>
         {% for equipo in misequipos %}
@@ -25,6 +26,15 @@
 
             <td>{{ equipo.nameTeam }}</td>
             <td>{{ equipo.sedeTeam }}</td>
+            <td>
+                {% if equipo.logo %}
+                <img src="{{ equipo.logo.url }}" align="center" alt="Image" 
+                     class="img-thumbnail" style="max-height:70px">
+                {% else %}
+                <img src="/media/equipos/default.png" align="center" alt="Image" 
+                     class="img-thumbnail" style="max-height:50px">
+                {% endif%}
+            </td>
             <td>
                 <a href="borrarEquipo/{{ equipo.idTeam }}">
                     Eliminar
